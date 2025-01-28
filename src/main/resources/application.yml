@@ -1,0 +1,49 @@
+# SPDX-FileCopyrightText: 2025 Swiss Confederation
+#
+# SPDX-License-Identifier: MIT
+
+server:
+  port: 8280
+
+spring:
+  application:
+    name: status-registry-authoring-service
+  flyway:
+    locations:
+      - classpath:db/migration/common
+      - classpath:db/migration/postgresql
+    # Flyway creates automatically the default schema if it doesn't exist
+    default-schema: ${spring.jpa.properties.hibernate.default_schema}
+  datasource:
+    hikari:
+      schema: ${spring.jpa.properties.hibernate.default_schema}
+  jpa:
+    properties:
+      hibernate:
+        default_schema: data
+        ddl-auto: validate
+springdoc:
+  api-docs:
+    path: /api-docs
+    enabled: "${INTEGRATED_WEB_DOCS_ENABLE:true}"
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: "${INTEGRATED_WEB_DOCS_ENABLE:true}"
+  show-actuator: "${INTEGRATED_WEB_DOCS_ENABLE:true}"
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+#security:
+#  oauth2:
+#    jwt:
+#      issuer-uris:
+#        Here we can add properties with URIs pointing to OIDC compatible authentication servers
+#        my-auth-server: https://www.example.com/auth
+
+status-registry:
+  dataUrlTemplate: "${STATUS_REGISTRY_DATA_URL}"
+  authoringBaseUrl: "${STATUS_REGISTRY_AUTHORING_URL}"

@@ -1,1 +1,0 @@
-# eidch-registry-status-authoring

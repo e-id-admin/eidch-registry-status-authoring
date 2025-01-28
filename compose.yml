@@ -1,0 +1,15 @@
+# SPDX-FileCopyrightText: 2025 Swiss Confederation
+#
+# SPDX-License-Identifier: MIT
+#
+
+services:
+  postgres:
+    image: postgres:15.8
+    hostname: localhost
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "secret"
+      POSTGRES_DB: "status-registry-db"
+    ports:
+      - '5280:5432'

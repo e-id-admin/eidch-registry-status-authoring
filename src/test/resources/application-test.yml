@@ -1,0 +1,30 @@
+# SPDX-FileCopyrightText: 2025 Swiss Confederation
+#
+# SPDX-License-Identifier: MIT
+
+spring:
+  datasource:
+    url: 'jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=PostgreSQL;DATABASE_TO_UPPER=false;INIT=CREATE SCHEMA IF NOT EXISTS "data"\;SET SCHEMA "data"\;'
+    username: sa
+    password: password
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: false
+    hibernate:
+      ddl-auto: none
+    properties:
+      hibernate:
+        default_schema: data
+  flyway:
+    locations:
+      - classpath:db/migration/common
+      - classpath:db/migration/h2
+security:
+  oauth2:
+    jwt:
+      issuer-uris:
+        example: "https://www.example.com"
+status-registry:
+  dataUrlTemplate: "TEST.DATAURL/{0}.{1}"
+  authoringBaseUrl: "http://TEST.AUTHORING.URL"
