@@ -4,7 +4,11 @@ SPDX-FileCopyrightText: 2025 Swiss Confederation
 SPDX-License-Identifier: MIT
 -->
 
-![Public Beta banner](https://github.com/e-id-admin/eidch-public-beta/blob/main/assets/github-banner-publicbeta.jpg)
+# DEPRECATED
+
+For the upcoming launch of the swiyu Public Beta Trust Infrastructure we created a new organisation [swiyu-admin-ch](https://github.com/swiyu-admin-ch). 
+
+This repository will be archived in the near term. New releases are published under [https://github.com/swiyu-admin-ch/eidch-registry-status-authoring](https://github.com/swiyu-admin-ch/eidch-registry-status-authoring).
 
 # Datastore Services and Libraries
 
